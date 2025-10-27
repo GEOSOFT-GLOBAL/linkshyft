@@ -69,6 +69,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.22
         version: 0.4.24(eslint@9.38.0(jiti@2.6.1))
+      fs:
+        specifier: 0.0.1-security
+        version: 0.0.1-security
       globals:
         specifier: ^16.4.0
         version: 16.4.0
@@ -1217,6 +1220,9 @@ packages:
 
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
+
+  fs@0.0.1-security:
+    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -2700,6 +2706,8 @@ snapshots:
       keyv: 4.5.4
 
   flatted@3.3.3: {}
+
+  fs@0.0.1-security: {}
 
   fsevents@2.3.3:
     optional: true
