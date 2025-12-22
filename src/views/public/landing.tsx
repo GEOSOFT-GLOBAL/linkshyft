@@ -21,7 +21,7 @@ const Home = () => {
         </p>
         <div className="flex gap-4">
           <Button asChild size="lg">
-            <Link to="/auth/signin">
+            <Link to="/convert">
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -134,7 +134,7 @@ const Home = () => {
             Join thousands of users who share files without the hassle.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/auth/signin">
+            <Link to="/convert">
               Start Sharing Now <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

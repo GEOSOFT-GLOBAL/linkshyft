@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
 import { FileText, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
   const navLinks = [
@@ -36,13 +32,10 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Desktop Auth Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" asChild>
-            <Link to="/auth/signin">Sign In</Link>
-          </Button>
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center">
           <Button asChild>
-            <Link to="/auth/signup">Get Started</Link>
+            <Link to="/convert">Start Converting</Link>
           </Button>
         </div>
 
@@ -56,7 +49,10 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent side="right" className="w-[280px]">
             <div className="flex flex-col gap-6 mt-6">
-              <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
+              <Link
+                to="/"
+                className="flex items-center gap-2 font-semibold text-lg"
+              >
                 <FileText className="h-6 w-6 text-primary" />
                 <span>LinkShyft</span>
               </Link>
@@ -72,11 +68,8 @@ const Navbar = () => {
                 ))}
               </nav>
               <div className="flex flex-col gap-3 pt-4 border-t">
-                <Button variant="outline" asChild>
-                  <Link to="/auth/signin">Sign In</Link>
-                </Button>
                 <Button asChild>
-                  <Link to="/auth/signup">Get Started</Link>
+                  <Link to="/convert">Start Converting</Link>
                 </Button>
               </div>
             </div>
