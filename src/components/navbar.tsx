@@ -5,8 +5,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
   const navLinks = [
-    { label: "Features", href: "/#features" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Send Files", href: "/send" },
+    { label: "Text", href: "/text" },
+    { label: "Chat", href: "/chat" },
     { label: "About", href: "/about" },
   ];
 
@@ -35,7 +36,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center">
           <Button asChild>
-            <Link to="/convert">Start Converting</Link>
+            <Link to="/send">Get Started</Link>
           </Button>
         </div>
 
@@ -69,7 +70,7 @@ const Navbar = () => {
               </nav>
               <div className="flex flex-col gap-3 pt-4 border-t">
                 <Button asChild>
-                  <Link to="/convert">Start Converting</Link>
+                  <Link to="/send">Get Started</Link>
                 </Button>
               </div>
             </div>

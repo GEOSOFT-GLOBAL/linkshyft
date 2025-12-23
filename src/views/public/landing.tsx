@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { FileText, Zap, Share2, Link2, ArrowRight, Shrink } from "lucide-react";
+import {
+  FileText,
+  Zap,
+  Link2,
+  ArrowRight,
+  MessageSquare,
+  FileArchive,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Home = () => {
@@ -9,20 +16,21 @@ const Home = () => {
       <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
           <Zap className="h-4 w-4" />
-          No contacts needed — just share a link
+          100% Free — No sign-up required
         </div>
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-          Convert, Compress & <span className="text-primary">Share</span>
+          Share Files, Text & <span className="text-primary">Chat</span>{" "}
+          Instantly
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mb-10">
-          Transform your files, shrink their size, and share them instantly via
-          a personal web link. No need to exchange contacts — anyone with the
-          link can access your files.
+          Send any file type — audio, documents, apps, and more. Share text
+          snippets or start a chat session. All through a simple link, no
+          contacts needed.
         </p>
         <div className="flex gap-4">
           <Button asChild size="lg">
-            <Link to="/convert">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/send">
+              Start Sharing <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
@@ -35,51 +43,51 @@ const Home = () => {
       <section className="py-20 px-4 bg-muted/30">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-semibold text-center mb-4">
-            Everything You Need
+            Share Anything, Anytime
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-            A complete toolkit for handling your files — convert formats,
-            reduce sizes, and share effortlessly.
+            Whether it's files, text, or a quick chat — LinkShyft makes sharing
+            effortless and completely free.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-lg bg-background border">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-                <FileText className="h-6 w-6" />
+                <FileArchive className="h-6 w-6" />
               </div>
-              <h3 className="font-medium mb-2">File Conversion</h3>
+              <h3 className="font-medium mb-2">Send Files</h3>
               <p className="text-sm text-muted-foreground">
-                Convert documents, images, and text between multiple formats
-                seamlessly.
+                Share any file type — documents, audio, videos, apps, and more.
+                No size limits, no hassle.
               </p>
             </div>
             <div className="text-center p-6 rounded-lg bg-background border">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-                <Shrink className="h-6 w-6" />
+                <FileText className="h-6 w-6" />
               </div>
-              <h3 className="font-medium mb-2">Compression</h3>
+              <h3 className="font-medium mb-2">Share Text</h3>
               <p className="text-sm text-muted-foreground">
-                Reduce file sizes without sacrificing quality. Perfect for
-                sharing large files.
+                Quickly share code snippets, notes, or any text content via a
+                simple shareable link.
+              </p>
+            </div>
+            <div className="text-center p-6 rounded-lg bg-background border">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
+                <MessageSquare className="h-6 w-6" />
+              </div>
+              <h3 className="font-medium mb-2">Instant Chat</h3>
+              <p className="text-sm text-muted-foreground">
+                Start a chat session with anyone. No accounts needed — just
+                share the link and start talking.
               </p>
             </div>
             <div className="text-center p-6 rounded-lg bg-background border">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
                 <Link2 className="h-6 w-6" />
               </div>
-              <h3 className="font-medium mb-2">Personal Links</h3>
+              <h3 className="font-medium mb-2">Link-Based Sharing</h3>
               <p className="text-sm text-muted-foreground">
-                Get your own shareable link. No contact exchange required —
-                just send the URL.
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-lg bg-background border">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-                <Share2 className="h-6 w-6" />
-              </div>
-              <h3 className="font-medium mb-2">Instant Sharing</h3>
-              <p className="text-sm text-muted-foreground">
-                Share files in seconds. Recipients access them directly — no
-                sign-up needed.
+                Everything works through links. No contact exchange, no sign-ups
+                — just share and go.
               </p>
             </div>
           </div>
@@ -97,27 +105,27 @@ const Home = () => {
               <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold flex items-center justify-center mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-medium mb-2">Upload Your File</h3>
+              <h3 className="font-medium mb-2">Choose What to Share</h3>
               <p className="text-sm text-muted-foreground">
-                Drag and drop or select files from your device.
+                Select files, paste text, or start a chat session.
               </p>
             </div>
             <div className="text-center">
               <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold flex items-center justify-center mx-auto mb-4">
                 2
               </div>
-              <h3 className="font-medium mb-2">Convert or Compress</h3>
+              <h3 className="font-medium mb-2">Get Your Link</h3>
               <p className="text-sm text-muted-foreground">
-                Choose your desired format or compression level.
+                We generate a unique link for your content instantly.
               </p>
             </div>
             <div className="text-center">
               <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold flex items-center justify-center mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-medium mb-2">Share the Link</h3>
+              <h3 className="font-medium mb-2">Share with Anyone</h3>
               <p className="text-sm text-muted-foreground">
-                Get a personal link and share it with anyone.
+                Send the link — recipients access your content directly.
               </p>
             </div>
           </div>
@@ -128,13 +136,14 @@ const Home = () => {
       <section className="py-20 px-4 bg-primary text-primary-foreground">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-4">
-            Ready to simplify file sharing?
+            Ready to share without limits?
           </h2>
           <p className="mb-8 opacity-90">
-            Join thousands of users who share files without the hassle.
+            Join thousands of users sharing files, text, and chatting — all for
+            free.
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/convert">
+            <Link to="/send">
               Start Sharing Now <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

@@ -13,32 +13,27 @@ const Footer = () => {
               <span>LinkShyft</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Convert, compress, and share files instantly via personal web links.
+              Share files, text, and chat instantly — all for free, no sign-up needed.
             </p>
           </div>
 
-          {/* Product */}
+          {/* Features */}
           <div>
-            <h4 className="font-medium mb-4">Product</h4>
+            <h4 className="font-medium mb-4">Features</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <Link to="/features" className="hover:text-foreground transition-colors">
-                  Features
+                <Link to="/send" className="hover:text-foreground transition-colors">
+                  Send Files
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-foreground transition-colors">
-                  Pricing
+                <Link to="/text" className="hover:text-foreground transition-colors">
+                  Share Text
                 </Link>
               </li>
               <li>
-                <Link to="/convert" className="hover:text-foreground transition-colors">
-                  Convert Files
-                </Link>
-              </li>
-              <li>
-                <Link to="/compress" className="hover:text-foreground transition-colors">
-                  Compress Files
+                <Link to="/chat" className="hover:text-foreground transition-colors">
+                  Chat
                 </Link>
               </li>
             </ul>
