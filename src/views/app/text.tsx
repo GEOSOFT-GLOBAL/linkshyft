@@ -1,20 +1,35 @@
 import { useState } from "react";
-import { FileText, Link2, Copy, Check, Trash2 } from "lucide-react";
+import { FileText, Link2, Copy, Check, Trash2, Bold, Italic, List, ListOrdered, Code, Heading1, Heading2 } from "lucide-react";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Placeholder from "@tiptap/extension-placeholder";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Toggle } from "@/components/ui/toggle";
 
 const Text = () => {
-  const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [shareLink, setShareLink] = useState("");
   const [copied, setCopied] = useState(false);
 
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Placeholder.configure({
+        placeholder: "Start typing your content here...",
+      }),
+    ],
+    editorProps: {
+      attributes: {
+        class: "prose prose-sm dark:prose-invert max-w-none min-h-[200px] p-4 focus:outline-none",
+      },
+    },
+  });
+
   const handleCreate = () => {
-    if (!text.trim()) return;
-    // TODO: Implement text sharing
+    if (!editor?.getText().trim()) return;
     setShareLink(`https://linkshyft.com/t/${Math.random().toString(36).slice(2, 10)}`);
   };
 
@@ -25,9 +40,9 @@ const Text = () => {
   };
 
   const clearAll = () => {
-    setText("");
     setTitle("");
     setShareLink("");
+    editor?.commands.clearContent();
   };
 
   return (
@@ -35,7 +50,7 @@ const Text = () => {
       <div className="mb-8">
         <h1 className="text-2xl font-bold mb-2">Share Text</h1>
         <p className="text-muted-foreground">
-          Share code snippets, notes, or any text content via a link.
+          Share rich text content, notes, or formatted documents via a link.
         </p>
       </div>
 
@@ -47,7 +62,7 @@ const Text = () => {
               Create Text Share
             </CardTitle>
             <CardDescription>
-              Paste or type your content below. It will be accessible via a unique link.
+              Use the editor below to create formatted content.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -60,18 +75,72 @@ const Text = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
+
             <div className="space-y-2">
-              <Label htmlFor="content">Content</Label>
-              <Textarea
-                id="content"
-                placeholder="Paste or type your text here..."
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                className="min-h-[200px] font-mono text-sm"
-              />
+              <Label>Content</Label>
+              <div className="border rounded-lg overflow-hidden">
+                {/* Toolbar */}
+                <div className="flex flex-wrap gap-1 p-2 border-b bg-muted/30">
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("heading", { level: 1 })}
+                    onPressedChange={() => editor?.chain().focus().toggleHeading({ level: 1 }).run()}
+                  >
+                    <Heading1 className="h-4 w-4" />
+                  </Toggle>
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("heading", { level: 2 })}
+                    onPressedChange={() => editor?.chain().focus().toggleHeading({ level: 2 }).run()}
+                  >
+                    <Heading2 className="h-4 w-4" />
+                  </Toggle>
+                  <div className="w-px h-6 bg-border mx-1" />
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("bold")}
+                    onPressedChange={() => editor?.chain().focus().toggleBold().run()}
+                  >
+                    <Bold className="h-4 w-4" />
+                  </Toggle>
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("italic")}
+                    onPressedChange={() => editor?.chain().focus().toggleItalic().run()}
+                  >
+                    <Italic className="h-4 w-4" />
+                  </Toggle>
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("code")}
+                    onPressedChange={() => editor?.chain().focus().toggleCode().run()}
+                  >
+                    <Code className="h-4 w-4" />
+                  </Toggle>
+                  <div className="w-px h-6 bg-border mx-1" />
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("bulletList")}
+                    onPressedChange={() => editor?.chain().focus().toggleBulletList().run()}
+                  >
+                    <List className="h-4 w-4" />
+                  </Toggle>
+                  <Toggle
+                    size="sm"
+                    pressed={editor?.isActive("orderedList")}
+                    onPressedChange={() => editor?.chain().focus().toggleOrderedList().run()}
+                  >
+                    <ListOrdered className="h-4 w-4" />
+                  </Toggle>
+                </div>
+
+                {/* Editor */}
+                <EditorContent editor={editor} className="min-h-[200px]" />
+              </div>
             </div>
+
             <div className="flex gap-2">
-              <Button onClick={handleCreate} disabled={!text.trim()} className="flex-1">
+              <Button onClick={handleCreate} disabled={!editor?.getText().trim()} className="flex-1">
                 <Link2 className="h-4 w-4 mr-2" />
                 Generate Share Link
               </Button>
