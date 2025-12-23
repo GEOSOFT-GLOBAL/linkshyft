@@ -1,14 +1,12 @@
 import { Outlet, NavLink, useNavigate, useLocation } from "react-router-dom";
 import {
-  Search,
+  FileArchive,
   FileText,
   History,
-  Bookmark,
+  MessageSquare,
   Settings,
   LogOut,
   Home,
-  FileStack,
-  MessageSquareText,
 } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -31,22 +29,19 @@ import {
 import { useAuthStore } from "@/store/auth.store";
 
 const navItems = [
-  { to: "/app", icon: Search, label: "Search" },
-  { to: "/app/contracts", icon: FileStack, label: "Contracts" },
-  { to: "/app/query", icon: MessageSquareText, label: "Query" },
-  { to: "/app/documents", icon: FileText, label: "Documents" },
+  { to: "/app", icon: FileArchive, label: "Send Files" },
+  { to: "/app/text", icon: FileText, label: "Share Text" },
+  { to: "/app/chat", icon: MessageSquare, label: "Chat" },
   { to: "/app/history", icon: History, label: "History" },
-  { to: "/app/bookmarks", icon: Bookmark, label: "Bookmarks" },
   { to: "/app/settings", icon: Settings, label: "Settings" },
 ];
 
 const routeLabels: Record<string, string> = {
   app: "Dashboard",
-  contracts: "Contracts",
-  query: "Query",
-  documents: "Documents",
+  send: "Send Files",
+  text: "Share Text",
+  chat: "Chat",
   history: "History",
-  bookmarks: "Bookmarks",
   settings: "Settings",
 };
 
@@ -54,7 +49,7 @@ const AppLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useAuthStore();
-  console.log(user);
+
   const handleLogout = () => {
     logout();
     navigate("/auth/signin");
@@ -84,7 +79,7 @@ const AppLayout = () => {
     <div className="flex h-screen">
       <aside className="w-64 border-r bg-muted/30 flex flex-col">
         <div className="p-4 border-b">
-          <h1 className="text-lg font-semibold">DocQuery</h1>
+          <h1 className="text-lg font-semibold">LinkShyft</h1>
         </div>
 
         <nav className="flex-1 p-2 space-y-1">

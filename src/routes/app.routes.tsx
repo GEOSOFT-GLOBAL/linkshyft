@@ -1,30 +1,29 @@
-import Bookmarks from "@/views/app/bookmarks";
-import Document from "@/views/app/documents";
+import Send from "@/views/app/send";
+import Text from "@/views/app/text";
+import Chat from "@/views/app/chat";
 import History from "@/views/app/history";
-import Query from "@/views/app/query";
-import Search from "@/views/app/search";
 import Setting from "@/views/app/settings";
 
 export const appRoutes = [
   {
     index: true,
-    element: <Search />,
+    element: <Send />,
   },
   {
-    path: "query",
-    element: <Query />,
+    path: "send",
+    element: <Send />,
+  },
+  {
+    path: "text",
+    element: <Text />,
+  },
+  {
+    path: "chat",
+    element: <Chat />,
   },
   {
     path: "history",
     element: <History />,
-  },
-  {
-    path: "documents",
-    element: <Document />,
-  },
-  {
-    path: "bookmarks",
-    element: <Bookmarks />,
   },
   {
     path: "settings",
