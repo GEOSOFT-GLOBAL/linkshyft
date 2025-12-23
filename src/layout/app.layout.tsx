@@ -2,7 +2,7 @@ import { Outlet, NavLink, useNavigate, useLocation } from "react-router-dom";
 import {
   FileArchive,
   FileText,
-  History,
+  History as HistoryIcon,
   MessageSquare,
   Settings,
   LogOut,
@@ -32,7 +32,7 @@ const navItems = [
   { to: "/app", icon: FileArchive, label: "Send Files" },
   { to: "/app/text", icon: FileText, label: "Share Text" },
   { to: "/app/chat", icon: MessageSquare, label: "Chat" },
-  { to: "/app/history", icon: History, label: "History" },
+  { to: "/app/history", icon: HistoryIcon, label: "History" },
   { to: "/app/settings", icon: Settings, label: "Settings" },
 ];
 
